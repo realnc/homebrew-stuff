@@ -1,0 +1,24 @@
+name: zita-resampler
+
+on:
+  pull_request:
+  push:
+    paths:
+      - 'Formula/zita-resampler.rb'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-10.15
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: brew reinstall --verbose --build-from-source --formula Formula/zita-resampler.rb
+
+    - name: Test
+      run: |
+        brew developer on
+        brew audit --strict --formula Formula/zita-resampler.rb
+        brew style --formula Formula/zita-resampler.rb
