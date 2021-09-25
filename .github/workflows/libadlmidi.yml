@@ -1,0 +1,26 @@
+name: libadlmidi
+
+on:
+  pull_request:
+  push:
+    paths:
+      - 'Formula/libadlmidi.rb'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-10.15
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+        brew tap realnc/stuff
+        brew reinstall --verbose --build-from-source --formula Formula/libadlmidi.rb
+
+    - name: Test
+      run: |
+        brew developer on
+        brew audit --strict --formula Formula/libadlmidi.rb
+        brew style --formula Formula/libadlmidi.rb
