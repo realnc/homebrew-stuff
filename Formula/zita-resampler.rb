@@ -6,11 +6,12 @@ class ZitaResampler < Formula
   license "GPL-3.0-or-later"
 
   def install
-    ENV.prepend "LDFLAGS", "-mmacosx-version-min=10.13"
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.9"
+    ENV.prepend "LDFLAGS", "-mmacosx-version-min=10.9"
 
     chdir "source" do
       inreplace "Makefile" do |s|
-        s.gsub! "-march=native", "-pipe -mmacosx-version-min=10.13"
+        s.gsub! "-march=native", "-pipe -mmacosx-version-min=10.9"
         s.gsub! "-soname", "-install_name"
         s.gsub! ".so", ".dylib"
         s.gsub! "ldconfig", "true"

@@ -10,6 +10,7 @@ class Libadlmidi < Formula
   depends_on "zita-resampler"
 
   def install
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.9"
     ENV.prepend "CFLAGS", "-I/usr/local/include"
     ENV.prepend "CXXFLAGS", "-I/usr/local/include"
 
