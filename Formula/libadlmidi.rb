@@ -15,7 +15,7 @@ class Libadlmidi < Formula
     ENV.prepend "CXXFLAGS", "-I/usr/local/include"
 
     args = std_cmake_args + %w[
-      -DlibADLMIDI_SHARED=OFF
+      -DlibADLMIDI_SHARED=ON
       -DlibADLMIDI_STATIC=ON
       -DWITH_MIDI_SEQUENCER=ON
       -DWITH_EMBEDDED_BANKS=OFF
