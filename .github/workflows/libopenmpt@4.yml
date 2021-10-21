@@ -1,0 +1,25 @@
+name: libopenmpt@4
+
+on:
+  pull_request:
+  push:
+    paths:
+      - 'Formula/libopenmpt@4.rb'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-10.15
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+        brew reinstall --verbose --build-from-source --formula 'Formula/libopenmpt@4.rb'
+
+    - name: Test
+      run: |
+        brew developer on
+        brew audit --strict --formula 'Formula/libopenmpt@4.rb'
+        brew style --formula 'Formula/libopenmpt@4.rb'
