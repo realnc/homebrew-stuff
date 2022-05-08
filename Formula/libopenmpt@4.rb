@@ -1,9 +1,9 @@
 class LibopenmptAT4 < Formula
   desc "Software library to decode tracked music files"
   homepage "https://lib.openmpt.org/libopenmpt/"
-  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.4.24+release.autotools.tar.gz"
-  version "0.4.24"
-  sha256 "06a65906904cdebc32bcc6d348c5ecd0ce06d19f48c96a081597db238c652142"
+  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.4.30+release.autotools.tar.gz"
+  version "0.4.30"
+  sha256 "3085eb09155c14a1782c88e5459f347230d69dc5e1694f043a9b57d9214e7312"
   license "BSD-3-Clause"
 
   keg_only :versioned_formula
